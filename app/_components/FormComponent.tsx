@@ -9,6 +9,7 @@ import { DebugComponent } from "./DebugComponent";
 import { DownloadComponent } from "./DownloadComponent";
 import { GenerationComponent } from "./GenerationComponent";
 import { HeaderComponent } from "./HeaderComponent";
+import { GearIcon } from "@radix-ui/react-icons";
 
 export const FormComponent: React.FC = () => {
   const [blockName, setBlockName] = useState("Hero");
@@ -164,9 +165,18 @@ export const FormComponent: React.FC = () => {
             <button
               onClick={handleGenerateClick}
               disabled={isLoading}
-              className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className={`w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center justify-center ${
+                isLoading ? "animate-pulse" : ""
+              }`}
             >
-              {isLoading ? "Generating..." : "Generate ACF Fields"}
+              {isLoading ? (
+                <>
+                  <GearIcon className="animate-spin mr-2 h-5 w-5" />
+                  Generating...
+                </>
+              ) : (
+                "Generate ACF Fields"
+              )}
             </button>
           </form>
         </div>
