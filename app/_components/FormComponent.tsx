@@ -4,12 +4,8 @@ import * as Checkbox from "@radix-ui/react-checkbox";
 import { CheckIcon } from "@radix-ui/react-icons";
 import defaultTailwindCode from "./defaultTailwindCode";
 import { generate } from "../actions";
-import { generateObject } from "ai";
-import { z } from "zod";
 import { readStreamableValue } from "ai/rsc";
 import { DebugComponent } from "./DebugComponent";
-import { LayersIcon } from "lucide-react";
-import JSZip from "jszip";
 import { DownloadComponent } from "./DownloadComponent";
 import { GenerationComponent } from "./GenerationComponent";
 import { HeaderComponent } from "./HeaderComponent";
@@ -63,7 +59,7 @@ export const FormComponent: React.FC = () => {
   return (
     <>
       <HeaderComponent />
-      <div className="flex flex-col md:flex-row gap-5 relative">
+      <div className="flex flex-col md:flex-row gap-2 relative">
         <div className="md:w-1/3 relative">
           <form
             onSubmit={(e) => e.preventDefault()}

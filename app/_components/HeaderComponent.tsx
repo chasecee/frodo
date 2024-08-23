@@ -3,7 +3,7 @@ import { LayersIcon } from "lucide-react";
 
 export const HeaderComponent: React.FC = () => {
   return (
-    <div className="flex flex-row gap-5 items-center my-2">
+    <div className="flex flex-row gap-2 items-center my-2">
       <div className="flex items-center space-x-2">
         <LayersIcon className="w-6 h-6 text-blue-500" />
         <h2 className="text-2xl font-bold">FRODO</h2>
