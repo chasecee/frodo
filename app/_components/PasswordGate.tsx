@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, ReactNode } from "react";
+import React, { useState, useEffect, ReactNode } from "react";
 
 interface PasswordGateProps {
   password: string;
@@ -10,10 +10,20 @@ export function PasswordGate({ password, children }: PasswordGateProps) {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const [inputPassword, setInputPassword] = useState<string>("");
 
+  useEffect(() => {
+    // Check localStorage only on the client side
+    const storedAuth = localStorage.getItem("isAuthenticated");
+    if (storedAuth === "true") {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (inputPassword === password) {
       setIsAuthenticated(true);
+      // Save authentication state to localStorage
+      localStorage.setItem("isAuthenticated", "true");
     } else {
       alert("Incorrect password");
     }
